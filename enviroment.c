@@ -1,9 +1,10 @@
-#include "header.h"
+#include "newheader.h"
 /**
  * manageEnviron - function manage the environment variables
  * @args: array of strings that rep the comm line args
  * @option: int that specifies whic op to perfom
  */
+char **environ;
 int manageEnviron(char *args[], int option)
 {
     char **env_aux = environ;
