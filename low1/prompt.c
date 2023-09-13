@@ -10,7 +10,7 @@ char *shellprompt(void)
 	size_t inputsize = 0;
 
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "lekstish=> ", 2);
+		write(STDOUT_FILENO, "lekstesh=> ", 12);
 
 	if (getline(&input, &inputsize, stdin) == -1)
 	{

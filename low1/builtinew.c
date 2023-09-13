@@ -14,6 +14,7 @@ void _exits(char **arg, char *input, int _ext)
 	{
 		free(input);
 		free(arg);
+		write(1, "Goodbye Friend!\n", 16);
 		exit(_ext);
 	}
 	exit_switch = atoi(arg[1]);
