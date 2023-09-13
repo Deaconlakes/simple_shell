@@ -14,7 +14,7 @@ int main(int ac, char **av, char **env)
 
 	while (1)
 	{
-		getcommand = _getline_command();
+		getcommand = shellprompt();
 		if (getcommand)
 		{
 			pathValue++;
@@ -31,7 +31,7 @@ int main(int ac, char **av, char **env)
 			else
 			{
 				n = _values_path(&user_command[0], env);
-				_ext = _fork_fun(user_command, av, env, getcommand, pathValue, n);
+				_ext = _fork(user_command, av, env, getcommand, pathValue, n);
 				if (n == 0)
 					free(user_command[0]);
 			}

@@ -13,7 +13,7 @@ int _values_path(char **arg, char **env)
 
 	if (stat(*arg, &stat_lineptr) == 0)
 		return (-1);
-	path_rela = _get_path(env);
+	path_rela = pathcheck(env);
 	if (!path_rela)
 		return (-1);
 	token = _strtok(path_rela, ":");

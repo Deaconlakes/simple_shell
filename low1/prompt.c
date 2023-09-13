@@ -4,13 +4,13 @@
  * Return: line of string input for user
  */
 
-char *_getline_command(void)
+char *shellprompt(void)
 {
 	char *input = NULL;
 	size_t inputsize = 0;
 
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
+		write(STDOUT_FILENO, "lekstish=> ", 2);
 
 	if (getline(&input, &inputsize, stdin) == -1)
 	{
