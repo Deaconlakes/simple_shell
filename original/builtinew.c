@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * _exit- this function closes the simple_shell when
+ * _exits- this function closes the simple_shell when
  * @arg: pointer with the direction argument.
  * @input: standar input string
  * @_ext: value of exit
@@ -8,7 +8,7 @@
  */
 void _exits(char **arg, char *input, int _ext)
 {
-	int exit_switch= 0;
+	int exit_switch = 0;
 
 	if (!arg[1])
 	{
