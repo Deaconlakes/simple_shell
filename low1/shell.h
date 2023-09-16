@@ -19,15 +19,20 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
+char *_strchr(const char *s, int ch);
+size_t _strspn(const char *s1, const char *s2);
+size_t _strcspn(const char *s1, const char *s2);
 
-char *pathcheck(char **env);
 int _values_path(char **arg, char **env);
-char *shellprompt(void);
+char *pathcheck(char **env);
+char *_getline_command(void);
 void _getenv(char **env);
 char **_get_token(char *lineptr);
-void _exits(char **args, char *lineptr, int _ext);
-int _fork(char **arg, char **av, char **env, char *input, int a, int c);
 char *_strtok(char *str, const char *delim);
+char *shellprompt(void);
+void _exits(char **arg, char *input, int _ext);
+int dir(char* myargs[]);
+int _fork(char **arg, char **av, char **env, char *input, int c);
 
 
 #endif /* SHELL_H */

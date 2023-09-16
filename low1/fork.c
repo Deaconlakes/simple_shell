@@ -10,11 +10,11 @@
  *Return: 0 success
  */
 
-int _fork(char **arg, char **av, char **env, char *input, int a, int c)
+int _fork(char **arg, char **av, char **env, char *input, int c)
 {
 	pid_t child;
 	int status;
-	char *pattern = "%s: %d: %s: not located\n";
+	char *pattern = "%s: %s is not found\n";
 
 	child = fork();
 
@@ -22,7 +22,7 @@ int _fork(char **arg, char **av, char **env, char *input, int a, int c)
 	{
 		if (execve(arg[0], arg, env) == -1)
 		{
-			fprintf(stderr, pattern, av[0], a, arg[0]);
+			fprintf(stderr, pattern, av[0],  arg[0]);
 			if (!c)
 				free(arg[0]);
 			free(arg);
