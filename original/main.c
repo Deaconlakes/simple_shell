@@ -32,7 +32,7 @@ int main(int ac, char **av, char **env)
 				dir(user_command);
 			else
 			{
-				n = _values_path(&user_command[0], env);
+				n = path_separate(&user_command[0], env);
 				_ext = _fork(user_command, av, env, getcommand, pathValue);
 				if (n == 0)
 					free(user_command[0]);

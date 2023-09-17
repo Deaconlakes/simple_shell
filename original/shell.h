@@ -23,7 +23,7 @@ char *_strchr(const char *s, int ch);
 size_t _strspn(const char *s1, const char *s2);
 size_t _strcspn(const char *s1, const char *s2);
 
-int _values_path(char **arg, char **env);
+int path_separate(char **arg, char **env);
 char *pathcheck(char **env);
 char *_getline_command(void);
 void _getenv(char **env);

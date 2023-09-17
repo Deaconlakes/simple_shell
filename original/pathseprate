@@ -1,22 +1,22 @@
 #include "shell.h"
 /**
- * _values_path - separate the path in new strings.
- * @arg: command input of user.
- * @env: enviroment.
- * Return:  a pointer to strings.
+ * path_separate - function that separate the path in new strings
+ * @arg: command input
+ * @env: enviroment
+ * Return: pointer to strings
  */
-int _values_path(char **arg, char **env)
+int path_separate(char **arg, char **env)
 {
-	char *token = NULL, *path_rela = NULL, *path_absol = NULL;
+	char *token = NULL, *pat_rel = NULL, *path_absol = NULL;
 	size_t value_path, command;
 	struct stat stat_lineptr;
 
 	if (stat(*arg, &stat_lineptr) == 0)
 		return (-1);
-	path_rela = pathcheck(env);
-	if (!path_rela)
+	pat_rel = pathcheck(env);
+	if (!pat_rel)
 		return (-1);
-	token = _strtok(path_rela, ":");
+	token = _strtok(pat_rel, ":");
 	command = _strlen(*arg);
 	while (token)
 	{
@@ -24,7 +24,7 @@ int _values_path(char **arg, char **env)
 		path_absol = malloc(sizeof(char) * (value_path + command + 2));
 		if (!path_absol)
 		{
-			free(path_rela);
+			free(pat_rel);
 			return (-1);
 		}
 		path_absol = _strcpy(path_absol, token);
@@ -34,12 +34,12 @@ int _values_path(char **arg, char **env)
 		if (stat(path_absol, &stat_lineptr) == 0)
 		{
 			*arg = path_absol;
-			free(path_rela);
+			free(pat_rel);
 			return (0);
 		}
 		free(path_absol);
 		token = _strtok(NULL, ":");
 	}
-	free(path_rela);
+	free(pat_rel);
 	return (-1);
 }
