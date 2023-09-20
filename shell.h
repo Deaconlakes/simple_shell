@@ -31,7 +31,7 @@ char **_get_token(char *lineptr);
 char *_strtok(char *str, const char *delim);
 char *shellprompt(void);
 void _exits(char **arg, char *input, int _ext);
-int dir(char* myargs[]);
+int dir(char *myargs[]);
 int _fork(char **arg, char **av, char **env, char *input, int c);
 
 
