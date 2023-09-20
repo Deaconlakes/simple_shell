@@ -9,9 +9,9 @@ int path_separate(char **arg, char **env)
 {
 	char *token = NULL, *pat_rel = NULL, *path_abs = NULL;
 	size_t path_value, command;
-	struct stat stat_lineptr;
+	struct stat stat_input;
 
-	if (stat(*arg, &stat_lineptr) == 0)
+	if (stat(*arg, &stat_input) == 0)
 		return (-1);
 	pat_rel = pathcheck(env);
 	if (!pat_rel)
@@ -32,7 +32,7 @@ int path_separate(char **arg, char **env)
 		_strcat(path_abs, "/");
 		_strcat(path_abs, *arg);
 
-		if (stat(path_abs, &stat_lineptr) == 0)
+		if (stat(path_abs, &stat_input) == 0)
 		{
 			*arg = path_abs;
 			free(pat_rel);
