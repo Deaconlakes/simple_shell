@@ -27,17 +27,20 @@ void _exits(char **arg, char *input, int _ext)
 /**
  *_getenv - function to get all env
  *@env: enviroment
+ *@var: input variable
  *Return: 0
  */
 
-void _getenv(char **env)
+void _getenv(char **env, char *var)
 {
 	size_t stat = 0;
 
 	while (env[stat])
 	{
-		write(STDOUT_FILENO, env[stat], _strlen(env[stat]));
+		if (!var || strncmp(env[stat], var, strlen(var)) == 0)
+		{write(STDOUT_FILENO, env[stat], _strlen(env[stat]));
 		write(STDOUT_FILENO, "\n", 1);
+		}
 		stat++;
 	}
 }

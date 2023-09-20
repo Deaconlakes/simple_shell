@@ -1,17 +1,17 @@
 #include "shell.h"
 /**
  * main - main arguments functions
- * @ac:count of argumnents
+ * @c:count of argumnents
  * @av: arguments
  * @env: environment
  * Return: _exit = 0.
  */
-int main(int ac, char **av, char **env)
+int main(int c, char **av, char **env)
 {
+	char *va = NULL;
 	char *getcommand = NULL, **user_command = NULL;
 	int pathValue = 0, _ext = 0, n = 0;
-	(void)ac;
-
+	(void) c;
 	while (1)
 	{
 		getcommand = shellprompt();
@@ -27,7 +27,7 @@ int main(int ac, char **av, char **env)
 			if ((!_strcmp(user_command[0], "exit")) && user_command[1] == NULL)
 				_exits(user_command, getcommand, _ext);
 			if (!_strcmp(user_command[0], "env"))
-				_getenv(env);
+				_getenv(env, va);
 			if (!_strcmp(user_command[0], "cd"))
 				dir(user_command);
 			else

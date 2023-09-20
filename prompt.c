@@ -16,8 +16,8 @@ char *shellprompt(void)
 		{
 			write(STDOUT_FILENO, "lekstesh", 8);
 			write(STDOUT_FILENO, cwd, strlen(cwd));
-			write(STDOUT_FILENO, "=>", 2);
-	}
+			write(STDOUT_FILENO, "=> ", 3);
+		}
 	}
 
 	if (getline(&input, &inputsize, stdin) == -1)

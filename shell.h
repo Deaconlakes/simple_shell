@@ -26,7 +26,7 @@ size_t _strcspn(const char *s1, const char *s2);
 int path_separate(char **arg, char **env);
 char *pathcheck(char **env);
 char *_getline_command(void);
-void _getenv(char **env);
+void _getenv(char **env, char *va);
 char **_get_token(char *lineptr);
 char *_strtok(char *str, const char *delim);
 char *shellprompt(void);
